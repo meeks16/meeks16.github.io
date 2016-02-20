@@ -42,7 +42,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Project name</a>
+          <a class="navbar-brand" href="#">Michael Tan Liao</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           
@@ -53,7 +53,10 @@
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
-        <h1>Michael Tan Liao</h1>
+        <h1>Hello my name is Michael </h1>
+        <div class="dateTime">
+        	<h1></h1>
+        </div>
         <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
         <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
       </div>
@@ -94,6 +97,36 @@
     <script>window.jQuery || document.write('<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/assets/js/vendor/jquery.min.js"><\/script>')</script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+    <script type="text/javascript">
+    	(function ($){
+    		$(function (){
+    			var d = new Date();
+    			var date = d.toDateString();
+    			
+    			console.log(d);
+    			console.log(date);
+
+    			var weekdays =[
+    				'Sunday',
+    				'Monday',
+    				'Tuesday',
+    				'Wednesday',
+    				'Thursday',
+    				'Friday',
+    				'Saturday'
+    			];
+
+    			var weekday = d.getDay();
+    			var day = d.getDate();
+    			var month = d.getMonth();
+    			
+    			var year = d.getFullYear();
+
+    			$('.jumbotron .container .dateTime h1').html("Today is " + date);
+    		});
+    	})(jQuery)
+    </script>
   </body>
 </html>
