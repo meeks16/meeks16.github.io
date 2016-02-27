@@ -62,7 +62,7 @@
 		<h2>Projects</h2>
         <div class="col-md-4">
           <h3>Poker Timer</h3>
-          <img src="images/pTimer.png" alt="Poker Timer" width="200" height="200">
+          <img src="images/pokerTimer/pTimer.png" alt="Poker Timer" width="200" height="200">
           <br><br>
           <p><a class="btn btn-default" href="pokerTimer.html" role="button">View Project &raquo;</a></p>
         </div>
@@ -83,12 +83,12 @@
       <hr>
 
       <footer>
-        <a href="https://github.com/meeks16" target=_blank > <img src="images/github.png" alt="Github" width="50" height="50">
-	    <a href="https://www.linkedin.com/in/michael-tan-liao-64144010a" target=_blank > <img src="images/linkedin.png" alt="LinkedIn" width="50" height="50">
-		<a href="http://stackoverflow.com/users/2865094/michael-jerikko-tan-liao" target=_blank > <img src="images/stack-overflow.png" alt="Stack Overflow" width="50" height="50">
-		<a href="https://plus.google.com/104472259172565825318" target=_blank > <img src="images/googleplus.png" alt="Google+" width="50" height="50">
-		<a href="https://meeks16.wordpress.com" target=_blank > <img src="images/wordpress.png" alt="Wordpress" width="50" height="50">
-		<a href="https://twitter.com/MichaelTanLiao" target=_blank > <img src="images/twitter.png" alt="Twitter" width="50" height="50">
+        <a href="https://github.com/meeks16" target=_blank > <img src="images/icons/github.png" alt="Github" width="50" height="50">
+	    <a href="https://www.linkedin.com/in/michael-tan-liao-64144010a" target=_blank > <img src="images/icons/linkedin.png" alt="LinkedIn" width="50" height="50">
+		<a href="http://stackoverflow.com/users/2865094/michael-jerikko-tan-liao" target=_blank > <img src="images/icons/stack-overflow.png" alt="Stack Overflow" width="50" height="50">
+		<a href="https://plus.google.com/104472259172565825318" target=_blank > <img src="images/icons/googleplus.png" alt="Google+" width="50" height="50">
+		<a href="https://meeks16.wordpress.com" target=_blank > <img src="images/icons/wordpress.png" alt="Wordpress" width="50" height="50">
+		<a href="https://twitter.com/MichaelTanLiao" target=_blank > <img src="images/icons/twitter.png" alt="Twitter" width="50" height="50">
       </footer>
     </div> <!-- /container -->
 
@@ -106,11 +106,9 @@
     	(function ($){
     		$(function (){
     			var d = new Date();
-    			var date = d.toDateString();
-    			
+    			var date = d.toDateString();  			
     			console.log(d);
     			console.log(date);
-
 
     			$('.jumbotron .container .dateTime h3').html("Today is " + date);
     		});
