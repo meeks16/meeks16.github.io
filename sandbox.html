@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<html lang="en">
+	<head>
+    	<meta charset="utf-8">
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+    	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    	<meta name="description" content="">
+    	<meta name="author" content="">
+    	<link rel="icon" href="../../favicon.ico">
+
+    	<title>Meeks16 Sandbox</title>
+
+    	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" 
+    			rel="stylesheet" 
+    			integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" 
+    			crossorigin="anonymous">
+    	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/assets/js/ie-emulation-modes-warning.js"></script>
+  </head>
+
+  	<body>
+  		<nav class="navbar navbar-inverse navbar-fixed-top">
+    		<div class="container">
+        		<div class="navbar-header">
+          			<button type="button" class="navbar-toggle collapsed" 
+          					data-toggle="collapse" data-target="#navbar" 
+          					aria-expanded="false" aria-controls="navbar">
+            			<span class="sr-only">Toggle navigation</span>
+            			<span class="icon-bar"></span>
+            			<span class="icon-bar"></span>
+            			<span class="icon-bar"></span>
+          			</button>
+          			<a class="navbar-brand" href="index.html">Portfolio</a>
+		  			<a class="navbar-brand" href="sandbox.html">Sandbox</a>
+        		</div>
+        		
+        		<div id="navbar" class="navbar-collapse collapse">
+          
+        		</div>
+      		</div>
+    	</nav>
+
+    	<div class="jumbotron">
+      		<div class="container">
+        		<h2>My Sanbox</h2>
+        		<div class="dateTime">
+					<h3></h3>
+        		</div>
+        		<div class="row">
+					<div class="col-md-4">
+						<div id="weather"></div>
+        			</div>
+				
+	   				<div class="col-md-4">
+	   					<div id="weatherForecast"></div>
+        			</div>
+      			</div>
+      		</div>
+      	</div>
+      	
+      	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>
+	    window.jQuery || document.write('<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/assets/js/vendor/jquery.min.js"><\/script>')
+	</script>
+	
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+   
+    <script type="text/javascript">
+    	(function ($){
+    		$(function (){
+    			var d = new Date();
+    			var date = d.toDateString();  			
+    			console.log(d);
+    			console.log(date);
+
+    			$('.jumbotron .container .dateTime h3').html("Today is " + date);
+    		});
+    	})(jQuery)
+    	
+    	$(document).ready(function() {
+			$.simpleWeather({
+				location: 'Chicago, IL',
+				woeid: '',
+				unit: 'f',
+				success: function(weather) {
+					html = '<h2><img src="'+weather.thumbnail
+							+'"><i class="icon-'+weather.code+'"></i> '
+							+weather.temp+'&deg;'+weather.units.temp+'</h2>';
+					html += '<ul><li>'+weather.city+', '+weather.region+'</li>';
+					html += '<li class="currently">'+weather.currently+'</li>';
+					html += '<li>'+weather.wind.direction+' '+weather.wind.speed+' '+weather.units.speed+'</li></ul>';
+
+					wf = '<table><thead><tr><th>'+weather.forecast[1].day+'</th>';
+					wf += '<th>'+weather.forecast[2].day+'</th>';
+					wf += '<th>'+weather.forecast[3].day+'</th>';
+					wf += '<th>'+weather.forecast[4].day+'</th></tr></thead>';
+					
+					wf += '<tbody><tr><td><img src="'+weather.forecast[1].thumbnail+ '"></td>';
+					wf += '<td><img src="'+weather.forecast[2].thumbnail+ '"></td>';
+					wf += '<td><img src="'+weather.forecast[3].thumbnail+ '"></td>';
+					wf += '<td><img src="'+weather.forecast[4].thumbnail+ '"></td></tr>';
+					
+					wf += '<tr><td>'+weather.forecast[1].high+'</td>';
+					wf += '<td>'+weather.forecast[2].high+'</td>';
+					wf += '<td>'+weather.forecast[3].high+'</td>';
+					wf += '<td>'+weather.forecast[4].high+'</td></tr>';
+					
+					wf += '<tr><td>'+weather.forecast[1].low+'</td>';
+					wf += '<td>'+weather.forecast[2].low+'</td>';
+					wf += '<td>'+weather.forecast[3].low+'</td>';
+					wf += '<td>'+weather.forecast[4].low+'</td></tr>';
+					
+					wf += '<tr><td>'+weather.forecast[1].text+'</td>';
+					wf += '<td>'+weather.forecast[2].text+'</td>';
+					wf += '<td>'+weather.forecast[3].text+'</td>';
+					wf += '<td>'+weather.forecast[4].text+'</td></tr></tbody></table>';
+							
+							
+			
+							
+					$("#weather").html(html);
+					$("#weatherForecast").html(wf);
+    			},
+				error: function(error) {
+					$("#weather").html('<p>'+error+'</p>');
+    			}
+  			});
+		});	
+    </script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery.simpleWeather/3.1.0/jquery.simpleWeather.min.js"></script>	
+	</body>
+</html>
