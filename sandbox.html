@@ -20,6 +20,12 @@
   </head>
 
   	<body>
+	  	<style>
+		  	tr {text-align: center;}
+		  	th {resize: both; text-align: center;}
+		  	td {resize: both; text-align: center;}
+		  	
+		</style>
   		<nav class="navbar navbar-inverse navbar-fixed-top">
     		<div class="container">
         		<div class="navbar-header">
@@ -44,17 +50,21 @@
     	<div class="jumbotron">
       		<div class="container">
         		<h2>My Sanbox</h2>
-        		<div class="dateTime">
-					<h3></h3>
-        		</div>
         		<div class="row">
-					<div class="col-md-4">
-						<div id="weather"></div>
-        			</div>
-				
+	        		<div class="col-md-4">
+						<div class="dateTime">
+							<h3></h3>
+        				</div>
+        				<div id="weather"></div>
+					</div>
+					
 	   				<div class="col-md-4">
 	   					<div id="weatherForecast"></div>
         			</div>
+					
+					<div class="col-md-4">
+						
+					</div>
       			</div>
       		</div>
       	</div>
@@ -69,6 +79,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
    
     <script type="text/javascript">
+	    
+	    
     	(function ($){
     		$(function (){
     			var d = new Date();
@@ -76,7 +88,7 @@
     			console.log(d);
     			console.log(date);
 
-    			$('.jumbotron .container .dateTime h3').html("Today is " + date);
+    			$('.dateTime h3').html("Today is " + date);
     		});
     	})(jQuery)
     	
@@ -93,15 +105,21 @@
 					html += '<li class="currently">'+weather.currently+'</li>';
 					html += '<li>'+weather.wind.direction+' '+weather.wind.speed+' '+weather.units.speed+'</li></ul>';
 
-					wf = '<table><thead><tr><th>'+weather.forecast[1].day+'</th>';
-					wf += '<th>'+weather.forecast[2].day+'</th>';
-					wf += '<th>'+weather.forecast[3].day+'</th>';
-					wf += '<th>'+weather.forecast[4].day+'</th></tr></thead>';
+					wf = '<table width="400"><thead><tr><th colspan="4"><h3>Upcoming weather forecast</h3></th></tr>';
+					wf += '<tr><th width="100">'+weather.forecast[1].day+'</th>';
+					wf += '<th width="100">'+weather.forecast[2].day+'</th>';
+					wf += '<th width="100">'+weather.forecast[3].day+'</th>';
+					wf += '<th width="100">'+weather.forecast[4].day+'</th></tr></thead>';
 					
 					wf += '<tbody><tr><td><img src="'+weather.forecast[1].thumbnail+ '"></td>';
 					wf += '<td><img src="'+weather.forecast[2].thumbnail+ '"></td>';
 					wf += '<td><img src="'+weather.forecast[3].thumbnail+ '"></td>';
 					wf += '<td><img src="'+weather.forecast[4].thumbnail+ '"></td></tr>';
+					
+					wf += '<tr><td>'+weather.forecast[1].text+'</td>';
+					wf += '<td>'+weather.forecast[2].text+'</td>';
+					wf += '<td>'+weather.forecast[3].text+'</td>';
+					wf += '<td>'+weather.forecast[4].text+'</td></tr>';
 					
 					wf += '<tr><td>'+weather.forecast[1].high+'</td>';
 					wf += '<td>'+weather.forecast[2].high+'</td>';
@@ -111,12 +129,7 @@
 					wf += '<tr><td>'+weather.forecast[1].low+'</td>';
 					wf += '<td>'+weather.forecast[2].low+'</td>';
 					wf += '<td>'+weather.forecast[3].low+'</td>';
-					wf += '<td>'+weather.forecast[4].low+'</td></tr>';
-					
-					wf += '<tr><td>'+weather.forecast[1].text+'</td>';
-					wf += '<td>'+weather.forecast[2].text+'</td>';
-					wf += '<td>'+weather.forecast[3].text+'</td>';
-					wf += '<td>'+weather.forecast[4].text+'</td></tr></tbody></table>';
+					wf += '<td>'+weather.forecast[4].low+'</td></tr></tbody></table>';
 							
 							
 			
