@@ -16,6 +16,10 @@ p.small {
     font-size: 16px;
 }
 
+li img:hover{
+	display: title;
+}
+
 a,
 a:hover,
 a:focus,
